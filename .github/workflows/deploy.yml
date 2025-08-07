@@ -12,42 +12,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: 82.29.189.137
-        port: 65002
-        username: u681736859
-        password: ${{ secrets.SSH_PASSWORD }}
-        script: |
-          # Navigate to website directory (adjust path as needed)
-          cd /public_html || cd /home/u681736859/public_html || cd /var/www/html
-          
-          # Backup current files (optional)
-          if [ -d "backup" ]; then
-            rm -rf backup
-          fi
-          mkdir backup
-          cp -r * backup/ 2>/dev/null || true
-          
-          # Remove old files (except backup)
-          find . -maxdepth 1 ! -name '.' ! -name 'backup' -exec rm -rf {} +
-          
-          # Create a temporary directory for new files
-          mkdir -p /tmp/website-deploy
-          
-    - name: Upload files
+    - name: Deploy via SCP
       uses: appleboy/scp-action@v0.1.4
       with:
         host: 82.29.189.137
         port: 65002
         username: u681736859
         password: ${{ secrets.SSH_PASSWORD }}
-        source: "."
-        target: "/tmp/website-deploy"
+        source: "index.html,styles.css,app.js,privacy-policy.html,profile.jpg"
+        target: "/public_html"
         strip_components: 0
+        overwrite: true
         
-    - name: Finalize deployment
+    - name: Set file permissions
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: 82.29.189.137
@@ -55,17 +32,8 @@ jobs:
         username: u681736859
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
-          # Navigate to website directory
-          cd /public_html || cd /home/u681736859/public_html || cd /var/www/html
-          
-          # Move new files to website directory
-          cp -r /tmp/website-deploy/* .
-          
-          # Set proper permissions
-          chmod -R 755 .
-          chmod 644 *.html *.css *.js *.jpg *.png *.ico
-          
-          # Clean up temporary files
-          rm -rf /tmp/website-deploy
-          
-          echo "Deployment completed successfully!" 
+          cd /public_html
+          chmod 644 *.html *.css *.js *.jpg *.png
+          echo "Deployment completed successfully!"
+          echo "Files deployed:"
+          ls -la *.html *.css *.js 
