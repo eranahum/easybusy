@@ -12,7 +12,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       
-    - name: Deploy via SCP
+    - name: Deploy website files
       uses: appleboy/scp-action@v0.1.4
       with:
         host: 82.29.189.137
@@ -20,11 +20,10 @@ jobs:
         username: u681736859
         password: ${{ secrets.SSH_PASSWORD }}
         source: "index.html,styles.css,app.js,privacy-policy.html,profile.jpg"
-        target: "/public_html"
-        strip_components: 0
+        target: "public_html"
         overwrite: true
         
-    - name: Set file permissions
+    - name: Verify deployment
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: 82.29.189.137
@@ -32,8 +31,9 @@ jobs:
         username: u681736859
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
-          cd /public_html
-          chmod 644 *.html *.css *.js *.jpg *.png
-          echo "Deployment completed successfully!"
-          echo "Files deployed:"
-          ls -la *.html *.css *.js 
+          cd public_html
+          echo "Files in public_html:"
+          ls -la
+          echo "Checking index.html content:"
+          head -5 index.html
+          echo "Deployment verification completed!" 
