@@ -173,14 +173,17 @@ The website includes Calendly integration for appointment booking. To set up:
 
 ## 🚀 Deployment
 
-### Option 1: Static Hosting
+### Automated Deployment (Current Setup)
+This website is automatically deployed from GitHub to the hosting server via GitHub Actions:
+- **Repository**: https://github.com/eranahum/easybusy
+- **Live Website**: https://lavenderblush-ibex-883889.hostingersite.com/
+- **Deployment**: Automatic on every `git push` to main branch
+
+### Manual Deployment Options
 - **Netlify**: Drag and drop the folder
 - **Vercel**: Connect your GitHub repository
 - **GitHub Pages**: Push to a GitHub repository
-
-### Option 2: Traditional Hosting
-- Upload all files to your web server
-- Ensure the domain points to the `index.html` file
+- **Traditional Hosting**: Upload all files to your web server
 
 ## 🔍 SEO Optimization
 
