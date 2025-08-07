@@ -18,7 +18,7 @@ jobs:
         host: 82.29.189.137
         port: 65002
         username: u681736859
-        password: ${{ secrets.SSH_PASSWORD }}
+        password: eranahuM12#
         source: "index.html,styles.css,app.js,privacy-policy.html,profile.jpg"
         target: "public_html"
         overwrite: true
@@ -29,7 +29,7 @@ jobs:
         host: 82.29.189.137
         port: 65002
         username: u681736859
-        password: ${{ secrets.SSH_PASSWORD }}
+        password: eranahuM12#
         script: |
           cd public_html
           echo "Files in public_html:"
