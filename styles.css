@@ -1,15 +1,15 @@
 /* CSS Variables for Color Scheme */
 :root {
-    --primary-brown: #C89B3C; /* golden ochre */
+    --primary-brown: #C8752E; /* warmer, more red-amber */
     --olive-green: #556B2F;
-    --light-tan: #E4CC9A; /* sand */
+    --light-tan: #E7BF86; /* warmer sand */
     --dark-green: #2F4F2F;
     --cream: #F5F5DC;
-    --dark-brown: #7A5A1A; /* deeper warm brown */
+    --dark-brown: #8A4A1E; /* deeper, redder brown */
     --text-dark: #2F4F2F;
     --text-light: #6B7280;
     --white: #FFFFFF;
-    --shadow: rgba(200, 155, 60, 0.12);
+    --shadow: rgba(200, 117, 46, 0.14);
     --nav-height: 128px;
 }
 
