@@ -34,7 +34,6 @@ jobs:
           ssh -o IdentitiesOnly=yes -p ${{ secrets.PORT }} -i ~/.ssh/id_ed25519 \
             ${{ secrets.USERNAME }}@${{ secrets.HOST }} "echo CONNECTED"
 
-      # 🔎 Diagnostics — keep these for now
       - name: Show target contents
         run: |
           ssh -o IdentitiesOnly=yes -p ${{ secrets.PORT }} -i ~/.ssh/id_ed25519 \
@@ -43,7 +42,6 @@ jobs:
 
       - name: Rsync dry-run (see what would change)
         run: |
-          set -euxo pipefail
           RSYNC_SRC="./"   # change to dist/ or build/ if you use a build step
           rsync -avzn --delete \
             --exclude ".git" --exclude ".github" \
@@ -55,4 +53,5 @@ jobs:
           RSYNC_SRC="./"   # change to your build folder (e.g., dist/ or build/) if you build
           rsync -az --delete \
             --exclude ".git" --exclude ".github" \
-            -e "ssh -o IdentitiesOnly=yes -
+            -e "ssh -o IdentitiesOnly=yes -p ${{ secrets.PORT }} -i ~/.ssh/id_ed25519" \
+            "$RSYNC_SRC" "${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.TARGET }}"
