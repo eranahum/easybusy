@@ -1,28 +1,10 @@
-      - name: Echo connection params (no secrets)
-        run: |
-          echo "HOST: ${{ secrets.HOST }}"
-          echo "PORT: ${{ secrets.PORT }}"
-          echo "USERNAME: ${{ secrets.USERNAME }}"
-          echo "TARGET: ${{ secrets.TARGET }}"
-
-      - name: Test SSH connection (verbose)
-        run: |
-          set -euxo pipefail
-          ssh -vvv -o IdentitiesOnly=yes \
-              -o StrictHostKeyChecking=yes \
-              -p ${{ secrets.PORT }} \
-              -i ~/.ssh/id_ed25519 \
-              ${{ secrets.USERNAME }}@${{ secrets.HOST }} \
-              "echo CONNECTED && whoami && pwd && ls -la ${{ secrets.TARGET }}"
-
-
-
-- name: Deploy to Hostinger
+name: Deploy to Hostinger
 
 on:
   push:
-    branches: [ "main" ]   # change if your default branch is different
-  workflow_dispatch:        # allow manual runs from the Actions tab
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -32,16 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # If you have a build step (e.g., Vite/React), uncomment and adjust:
-      # - name: Setup Node
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: "20"
-      # - name: Install deps & build
-      #   run: |
-      #     npm ci
-      #     npm run build
-
       - name: Prepare SSH
         run: |
           mkdir -p ~/.ssh
@@ -49,12 +21,10 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p ${{ secrets.PORT }} -T 10 ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy via rsync
+      - name: Test SSH connection
         run: |
-          # If you build, change RSYNC_SRC to your output folder (e.g., "dist/")
-          RSYNC_SRC="./"
-          rsync -az --delete \
-            --exclude ".git" \
-            --exclude ".github" \
-            -e "ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.PORT }}" \
-            "$RSYNC_SRC" "${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.TARGET }}"
+          ssh -o IdentitiesOnly=yes -vvv \
+            -p ${{ secrets.PORT }} \
+            -i ~/.ssh/id_ed25519 \
+            ${{ secrets.USERNAME }}@${{ secrets.HOST }} \
+            "echo CONNECTED"
