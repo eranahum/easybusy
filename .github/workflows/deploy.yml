@@ -1,39 +1,41 @@
-name: Deploy to Hosting Server
+name: Deploy to Hostinger
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]   # change if your default branch is different
+  workflow_dispatch:        # allow manual runs from the Actions tab
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Deploy website files
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: 82.29.189.137
-        port: 65002
-        username: u681736859
-        password: eranahuM12#
-        source: "index.html,styles.css,app.js,privacy-policy.html,profile.jpg"
-        target: "public_html"
-        overwrite: true
-        
-    - name: Verify deployment
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: 82.29.189.137
-        port: 65002
-        username: u681736859
-        password: eranahuM12#
-        script: |
-          cd public_html
-          echo "Files in public_html:"
-          ls -la
-          echo "Checking index.html content:"
-          head -5 index.html
-          echo "Deployment verification completed!" 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # If you have a build step (e.g., Vite/React), uncomment and adjust:
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: "20"
+      # - name: Install deps & build
+      #   run: |
+      #     npm ci
+      #     npm run build
+
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p ${{ secrets.PORT }} -T 10 ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        run: |
+          # If you build, change RSYNC_SRC to your output folder (e.g., "dist/")
+          RSYNC_SRC="./"
+          rsync -az --delete \
+            --exclude ".git" \
+            --exclude ".github" \
+            -e "ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.PORT }}" \
+            "$RSYNC_SRC" "${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.TARGET }}"
