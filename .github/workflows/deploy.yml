@@ -2,8 +2,7 @@ name: Deploy to Hostinger
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -14,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # If you use a build tool (Vite/React/etc.), uncomment and adjust:
+      # - uses: actions/setup-node@v4
+      #   with: { node-version: "20" }
+      # - run: npm ci && npm run build
+
       - name: Prepare SSH
         run: |
           mkdir -p ~/.ssh
@@ -23,8 +27,13 @@ jobs:
 
       - name: Test SSH connection
         run: |
-          ssh -o IdentitiesOnly=yes -vvv \
-            -p ${{ secrets.PORT }} \
-            -i ~/.ssh/id_ed25519 \
-            ${{ secrets.USERNAME }}@${{ secrets.HOST }} \
-            "echo CONNECTED"
+          ssh -o IdentitiesOnly=yes -p ${{ secrets.PORT }} -i ~/.ssh/id_ed25519 \
+            ${{ secrets.USERNAME }}@${{ secrets.HOST }} "echo CONNECTED"
+
+      - name: Deploy via rsync
+        run: |
+          RSYNC_SRC="./"   # change to your build folder (e.g., dist/ or build/) if you build
+          rsync -az --delete \
+            --exclude ".git" --exclude ".github" \
+            -e "ssh -o IdentitiesOnly=yes -p ${{ secrets.PORT }} -i ~/.ssh/id_ed25519" \
+            "$RSYNC_SRC" "${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.TARGET }}"
