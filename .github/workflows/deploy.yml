@@ -1,4 +1,23 @@
-name: Deploy to Hostinger
+      - name: Echo connection params (no secrets)
+        run: |
+          echo "HOST: ${{ secrets.HOST }}"
+          echo "PORT: ${{ secrets.PORT }}"
+          echo "USERNAME: ${{ secrets.USERNAME }}"
+          echo "TARGET: ${{ secrets.TARGET }}"
+
+      - name: Test SSH connection (verbose)
+        run: |
+          set -euxo pipefail
+          ssh -vvv -o IdentitiesOnly=yes \
+              -o StrictHostKeyChecking=yes \
+              -p ${{ secrets.PORT }} \
+              -i ~/.ssh/id_ed25519 \
+              ${{ secrets.USERNAME }}@${{ secrets.HOST }} \
+              "echo CONNECTED && whoami && pwd && ls -la ${{ secrets.TARGET }}"
+
+
+
+- name: Deploy to Hostinger
 
 on:
   push:
