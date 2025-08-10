@@ -57,9 +57,11 @@ body {
 
 .nav-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    padding: 1rem 0;
 }
 
 .nav-logo {
@@ -88,6 +90,8 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    justify-content: center;
+    margin-top: auto;
 }
 
 .nav-link {
