@@ -616,7 +616,7 @@ body {
         right: 0;
     }
     
-    /* Ensure consistent colors on mobile */
+    /* Ensure consistent colors on mobile - COMPLETE OVERRIDE */
     .nav-logo h2 {
         color: var(--primary-brown) !important;
     }
@@ -638,17 +638,96 @@ body {
         font-size: 2.5rem;
         color: var(--white) !important;
     }
+    
     .hero-text {
         font-size: 1.1rem;
         color: var(--white) !important;
     }
+    
+    .about-text h2 {
+        color: var(--primary-brown) !important;
+    }
+    
+    .about-text p {
+        color: var(--text-light) !important;
+    }
+    
+    .about-text li {
+        color: var(--text-light) !important;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        color: var(--primary-brown) !important;
+    }
+    
+    .service-card h3 {
+        color: var(--primary-brown) !important;
+    }
+    
+    .service-card p {
+        color: var(--text-light) !important;
+    }
+    
+    .service-details h4 {
+        color: var(--primary-brown) !important;
+    }
+    
+    .service-details li {
+        color: var(--text-dark) !important;
+    }
+    
+    .service-details p {
+        color: var(--text-dark) !important;
+    }
+    
+    .package-header h3 {
+        color: var(--white) !important;
+    }
+    
+    .package-content p {
+        color: var(--text-light) !important;
+    }
+    
+    .cta-content h2 {
+        color: var(--white) !important;
+    }
+    
+    .cta-content p {
+        color: var(--white) !important;
+    }
+    
+    .footer {
+        background: var(--dark-green) !important;
+        color: var(--white) !important;
+    }
+    
+    .footer-text p {
+        color: var(--white) !important;
+    }
+    
+    .quote {
+        color: var(--light-tan) !important;
+    }
+    
+    .social-icon {
+        background: var(--olive-green) !important;
+        color: var(--white) !important;
+    }
+    
+    .social-icon:hover {
+        background: var(--primary-brown) !important;
+    }
+    
     .about-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    
     .services-grid {
         justify-content: center;
     }
+    
     .service-card {
         flex: 0 1 calc((100% - 2rem) / 2);
     }
@@ -657,16 +736,14 @@ body {
         margin-top: 1rem;
         padding: 1rem;
     }
+    
     .packages-grid {
         grid-template-columns: 1fr;
     }
+    
     .footer-content {
         flex-direction: column;
         text-align: center;
-    }
-    .section-title {
-        font-size: 2rem;
-        color: var(--primary-brown) !important;
     }
 }
 
@@ -700,16 +777,99 @@ body {
         font-size: 2rem;
         color: var(--white) !important;
     }
+    
+    .hero-text {
+        color: var(--white) !important;
+    }
+    
+    .about-text h2 {
+        color: var(--primary-brown) !important;
+    }
+    
+    .about-text p {
+        color: var(--text-light) !important;
+    }
+    
+    .about-text li {
+        color: var(--text-light) !important;
+    }
+    
+    .section-title {
+        color: var(--primary-brown) !important;
+    }
+    
+    .service-card h3 {
+        color: var(--primary-brown) !important;
+    }
+    
+    .service-card p {
+        color: var(--text-light) !important;
+    }
+    
+    .service-details h4 {
+        font-size: 1rem;
+        color: var(--primary-brown) !important;
+    }
+    
+    .service-details li {
+        color: var(--text-dark) !important;
+    }
+    
+    .service-details p {
+        color: var(--text-dark) !important;
+    }
+    
+    .package-header h3 {
+        color: var(--white) !important;
+    }
+    
+    .package-content p {
+        color: var(--text-light) !important;
+    }
+    
+    .cta-content h2 {
+        color: var(--white) !important;
+    }
+    
+    .cta-content p {
+        color: var(--white) !important;
+    }
+    
+    .footer {
+        background: var(--dark-green) !important;
+        color: var(--white) !important;
+    }
+    
+    .footer-text p {
+        color: var(--white) !important;
+    }
+    
+    .quote {
+        color: var(--light-tan) !important;
+    }
+    
+    .social-icon {
+        background: var(--olive-green) !important;
+        color: var(--white) !important;
+    }
+    
+    .social-icon:hover {
+        background: var(--primary-brown) !important;
+    }
+    
     .cta-button {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
+    
     .container {
         padding: 0 15px;
     }
+    
     .services-grid {
         justify-content: center;
     }
+    
     .service-card {
         flex: 0 1 100%;
     }
@@ -717,11 +877,6 @@ body {
     .service-details {
         margin-top: 0.8rem;
         padding: 0.8rem;
-    }
-    
-    .service-details h4 {
-        font-size: 1rem;
-        color: var(--primary-brown) !important;
     }
 }
 
