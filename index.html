@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ניהול מוצר וליווי טכנולוגי - MVP מדויק</title>
-    <link rel="stylesheet" href="styles.css?v=20250809e">
+    <link rel="stylesheet" href="styles.css?v=20250809k">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,8 +13,11 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="logo-128.png?v=20250809a" alt="Production logo" class="nav-logo-img" width="128" height="128" />
-                <h2>Production</h2>
+                <img src="brush_cyclic_heptagon_8s_seamless_transparent_fps12_70pct.webp" alt="Production logo" class="nav-logo-img" width="128" height="128" />
+                <div class="nav-logo-text">
+                    <h2>Production</h2>
+                    <p class="nav-logo-subtitle">product engineering</p>
+                </div>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">בית</a></li>
@@ -77,40 +80,119 @@
             <div class="container">
                 <h2 class="section-title">שירותים</h2>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card" onclick="toggleServiceDetails('service1')">
                         <div class="service-icon">
                             <i class="fas fa-brain"></i>
                         </div>
                         <h3>אסטרטגיית מוצר & Roadmap</h3>
                         <p>מפת דרכים, חזון, תעדוף והצמדת מטרות עסקיות.</p>
+                        <div class="service-details" id="service1">
+                            <h4>מה זה כולל?</h4>
+                            <ul>
+                                <li>ניתוח שוק מתחרים וזיהוי הזדמנויות</li>
+                                <li>בניית חזון מוצר ברור ומדיד</li>
+                                <li>יצירת מפת דרכים עם אבני דרך מוגדרות</li>
+                                <li>תדוף תכונות לפי ROI ויעדים עסקיים</li>
+                                <li>הגדרת KPIs ומדדי הצלחה</li>
+                            </ul>
+                            <h4>למי זה מתאים?</h4>
+                            <p>סטארטאפים בתחילת הדרך, עסקים שמחפשים כיוון חדש, או מוצרים קיימים שצריכים רענון אסטרטגי.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
-                    <div class="service-card">
+                    
+                    <div class="service-card" onclick="toggleServiceDetails('service2')">
                         <div class="service-icon">
                             <i class="fas fa-search"></i>
                         </div>
                         <h3>אפיון & מחקר משתמשים</h3>
                         <p>ראיונות, מיפוי כאבים, הגדרת MVP ממוקד.</p>
+                        <div class="service-details" id="service2">
+                            <h4>מה זה כולל?</h4>
+                            <ul>
+                                <li>ראיונות עומק עם משתמשים פוטנציאליים</li>
+                                <li>מיפוי כאבים וצרכים לא מסופקים</li>
+                                <li>יצירת personas מפורטים</li>
+                                <li>בניית user journey maps</li>
+                                <li>הגדרת MVP עם תכונות חיוניות בלבד</li>
+                            </ul>
+                            <h4>למי זה מתאים?</h4>
+                            <p>צוותים שרוצים להבין מה המשתמשים באמת רוצים, לפני שמתחילים לפתח.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
-                    <div class="service-card">
+                    
+                    <div class="service-card" onclick="toggleServiceDetails('service3')">
                         <div class="service-icon">
                             <i class="fas fa-wrench"></i>
                         </div>
                         <h3>ליווי טכנולוגי וניהול מפתחים</h3>
                         <p>סיוע בבחירת טכנולוגיה, ניהול פרילנסרים וצוותים.</p>
+                        <div class="service-details" id="service3">
+                            <h4>מה זה כולל?</h4>
+                            <ul>
+                                <li>ייעוץ בבחירת stack טכנולוגי מתאים</li>
+                                <li>ניהול צוותי פיתוח ופרילנסרים</li>
+                                <li>בקרת איכות ובדיקות קוד</li>
+                                <li>תכנון ארכיטקטורה וסקלביליות</li>
+                                <li>ניהול סיכונים טכנולוגיים</li>
+                            </ul>
+                            <h4>למי זה מתאים?</h4>
+                            <p>מייסדים ללא רקע טכני, או צוותים שצריכים גשר בין הצד העסקי לטכני.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
-                    <div class="service-card">
+                    
+                    <div class="service-card" onclick="toggleServiceDetails('service4')">
                         <div class="service-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3>הטמעת מערכות וכלים פנימיים</h3>
                         <p>בניית תשתיות עם Notion, CRM, ClickUp ועוד.</p>
+                        <div class="service-details" id="service4">
+                            <h4>מה זה כולל?</h4>
+                            <ul>
+                                <li>בניית מערכות ניהול ידע עם Notion</li>
+                                <li>הטמעת CRM וניהול לקוחות</li>
+                                <li>בניית תהליכי עבודה עם ClickUp/Asana</li>
+                                <li>אינטגרציה בין כלים שונים</li>
+                                <li>הדרכת צוותים בשימוש בכלים</li>
+                            </ul>
+                            <h4>למי זה מתאים?</h4>
+                                <p>עסקים שצריכים לייעל תהליכים פנימיים ולהגדיל פרודוקטיביות.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
-                    <div class="service-card">
+                    
+                    <div class="service-card" onclick="toggleServiceDetails('service5')">
                         <div class="service-icon">
                             <i class="fas fa-briefcase"></i>
                         </div>
                         <h3>ניהול מוצר חלקי / CPO זמני</h3>
                         <p>אחריות אסטרטגית וניהולית ללא גיוס במשרה מלאה.</p>
+                        <div class="service-details" id="service5">
+                            <h4>מה זה כולל?</h4>
+                            <ul>
+                                <li>ניהול מוצר יומיומי וקבלת החלטות</li>
+                                <li>עבודה עם צוותי פיתוח ועיצוב</li>
+                                <li>ניהול תקציבים ותכנון משאבים</li>
+                                <li>דיווח למנהלים ומשקיעים</li>
+                                <li>העברת ידע לצוות פנימי</li>
+                            </ul>
+                            <h4>למי זה מתאים?</h4>
+                            <p>סטארטאפים שצריכים מנהל מוצר מנוסה אבל לא יכולים להרשות לעצמם CPO במשרה מלאה.</p>
+                        </div>
+                        <div class="service-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
                 </div>
             </div>

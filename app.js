@@ -179,19 +179,40 @@ class SPA {
         serviceCards.forEach((card, index) => {
             // Add hover effects
             card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                }
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
             });
 
-            // Add click effect
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                }, 150);
+            // Add click effect and toggle functionality
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Toggle active state
+                const isActive = this.classList.contains('active');
+                
+                // Close all other service cards
+                serviceCards.forEach(otherCard => {
+                    if (otherCard !== this) {
+                        otherCard.classList.remove('active');
+                        otherCard.style.transform = 'translateY(0) scale(1)';
+                    }
+                });
+                
+                // Toggle current card
+                this.classList.toggle('active');
+                
+                if (this.classList.contains('active')) {
+                    this.style.transform = 'translateY(-5px) scale(1.01)';
+                } else {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
             });
         });
     }
@@ -379,4 +400,22 @@ document.addEventListener('visibilitychange', () => {
         // Page is visible, resume animations
         document.body.classList.remove('page-hidden');
     }
-}); 
+});
+
+// Global function for toggling service details
+function toggleServiceDetails(serviceId) {
+    const serviceDetails = document.getElementById(serviceId);
+    const serviceCard = serviceDetails.closest('.service-card');
+    
+    if (serviceDetails && serviceCard) {
+        // Close all other service details
+        document.querySelectorAll('.service-details').forEach(details => {
+            if (details.id !== serviceId) {
+                details.classList.remove('active');
+            }
+        });
+        
+        // Toggle current service details
+        serviceDetails.classList.toggle('active');
+    }
+} 
