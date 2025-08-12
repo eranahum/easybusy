@@ -1,0 +1,5 @@
+[33m9c46883[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update header layout with new brush logo, expandable service details, and improved navigation styling
+[33mc7193ec[m Fix header layout - keep navigation menu within header bounds
+[33m38afc40[m Center navigation menu at bottom of header; bump CSS version
+[33m71ba549[m Color tune: slightly redder golden palette site-wide; bump CSS version
+[33m876f85c[m Adjust palette: shift to golden desert tones; bump CSS version

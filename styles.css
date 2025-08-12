@@ -48,6 +48,7 @@ body {
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     z-index: 1000;
     padding: 0;
     height: var(--nav-height);
@@ -565,6 +566,12 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .navbar {
+        background: var(--white) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
     .nav-container {
         flex-direction: column;
         justify-content: center;
@@ -608,11 +615,32 @@ body {
     .nav-menu.active {
         right: 0;
     }
+    
+    /* Ensure consistent colors on mobile */
+    .nav-logo h2 {
+        color: var(--primary-brown) !important;
+    }
+    
+    .nav-logo-subtitle {
+        color: var(--primary-brown) !important;
+    }
+    
+    .nav-link {
+        color: var(--text-dark) !important;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        color: var(--primary-brown) !important;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
+        color: var(--white) !important;
     }
     .hero-text {
         font-size: 1.1rem;
+        color: var(--white) !important;
     }
     .about-content {
         grid-template-columns: 1fr;
@@ -638,20 +666,29 @@ body {
     }
     .section-title {
         font-size: 2rem;
+        color: var(--primary-brown) !important;
     }
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        background: var(--white) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
     .nav-container {
         padding: 0;
     }
     
     .nav-logo h2 {
         font-size: 1.5rem !important;
+        color: var(--primary-brown) !important;
     }
     
     .nav-logo-subtitle {
         font-size: 0.9rem !important;
+        color: var(--primary-brown) !important;
     }
     
     .nav-logo-img {
@@ -661,6 +698,7 @@ body {
     
     .hero-title {
         font-size: 2rem;
+        color: var(--white) !important;
     }
     .cta-button {
         padding: 0.8rem 1.5rem;
@@ -683,6 +721,7 @@ body {
     
     .service-details h4 {
         font-size: 1rem;
+        color: var(--primary-brown) !important;
     }
 }
 
