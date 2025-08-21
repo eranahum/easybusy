@@ -179,12 +179,21 @@ class SPA {
     }
 
     loadContent() {
-        // Add loading animation to sections
-        const sections = document.querySelectorAll('.section');
+        // Start intro section animations immediately since it's above the fold
+        const introSection = document.getElementById('intro');
+        if (introSection) {
+            introSection.classList.add('fade-in-up');
+            console.log('Intro section animations started immediately');
+        }
+        
+        // Add loading animation to other sections
+        const sections = document.querySelectorAll('section');
         sections.forEach((section, index) => {
-            setTimeout(() => {
-                section.classList.add('loaded');
-            }, index * 200);
+            if (section.id !== 'intro') {
+                setTimeout(() => {
+                    section.classList.add('loaded');
+                }, index * 200);
+            }
         });
 
         // Initialize service card animations

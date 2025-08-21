@@ -205,15 +205,18 @@ p {
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: var(--space-4);
-  animation: fadeInUp 1s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
 }
 
 .hero-main-text {
   font-size: 1.5rem;
   margin-bottom: var(--space-4);
-  opacity: 0.95;
-  animation: fadeInUp 1s ease-out 0.2s both;
+  opacity: 0;
+  transform: translateY(30px);
   line-height: 1.4;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
 }
 
 .hero-bullets {
@@ -225,10 +228,11 @@ p {
 .hero-bullets li {
   font-size: 1.2rem;
   margin-bottom: var(--space-2);
-  opacity: 0.9;
+  opacity: 0;
+  transform: translateY(30px);
   position: relative;
   padding-right: var(--space-4);
-  animation: fadeInUp 1s ease-out both;
+  animation: fadeInUp 1s ease-out forwards;
 }
 
 .hero-bullets li::before {
@@ -260,7 +264,9 @@ p {
   font-size: 1.1rem;
   transition: all 0.3s ease;
   box-shadow: var(--shadow);
-  animation: fadeInUp 1s ease-out 1.6s both;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 1.6s forwards;
 }
 
 .cta-button:hover {
@@ -735,6 +741,15 @@ p {
 }
 
 .fade-in-up.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero content animations when intro section is active */
+#intro.fade-in-up .hero-title,
+#intro.fade-in-up .hero-main-text,
+#intro.fade-in-up .hero-bullets li,
+#intro.fade-in-up .cta-button {
   opacity: 1;
   transform: translateY(0);
 }
