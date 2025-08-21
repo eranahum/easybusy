@@ -207,7 +207,7 @@ p {
   margin-bottom: var(--space-4);
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 1s ease-out forwards;
+  transition: all 0.8s ease-out;
 }
 
 .hero-main-text {
@@ -216,7 +216,7 @@ p {
   opacity: 0;
   transform: translateY(30px);
   line-height: 1.4;
-  animation: fadeInUp 1s ease-out 0.2s forwards;
+  transition: all 0.8s ease-out;
 }
 
 .hero-bullets {
@@ -232,7 +232,7 @@ p {
   transform: translateY(30px);
   position: relative;
   padding-right: var(--space-4);
-  animation: fadeInUp 1s ease-out forwards;
+  transition: all 0.8s ease-out;
 }
 
 .hero-bullets li::before {
@@ -266,7 +266,7 @@ p {
   box-shadow: var(--shadow);
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 1s ease-out 1.6s forwards;
+  transition: all 0.8s ease-out;
 }
 
 .cta-button:hover {
@@ -746,12 +746,57 @@ p {
 }
 
 /* Hero content animations when intro section is active */
-#intro.fade-in-up .hero-title,
-#intro.fade-in-up .hero-main-text,
-#intro.fade-in-up .hero-bullets li,
+#intro.fade-in-up .hero-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#intro.fade-in-up .hero-main-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+#intro.fade-in-up .hero-bullets li:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+#intro.fade-in-up .hero-bullets li:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+#intro.fade-in-up .hero-bullets li:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+#intro.fade-in-up .hero-bullets li:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.0s;
+}
+
+#intro.fade-in-up .hero-bullets li:nth-child(5) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.2s;
+}
+
+#intro.fade-in-up .hero-bullets li:nth-child(6) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.4s;
+}
+
 #intro.fade-in-up .cta-button {
   opacity: 1;
   transform: translateY(0);
+  transition-delay: 1.6s;
 }
 
 .service-card.active {
