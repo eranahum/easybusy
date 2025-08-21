@@ -177,23 +177,67 @@ class SPA {
         const serviceCards = document.querySelectorAll('.service-card');
         
         serviceCards.forEach((card, index) => {
-            // Remove any existing event listeners to avoid conflicts
-            const newCard = card.cloneNode(true);
-            card.parentNode.replaceChild(newCard, card);
+            const serviceId = card.getAttribute('data-service');
+            const serviceDetails = document.getElementById(serviceId);
+            const toggle = card.querySelector('.service-toggle');
+            
+            if (!serviceDetails) {
+                console.error(`Service details not found for ID: ${serviceId}`);
+                return;
+            }
+            
+            // Add click event listener to the entire card
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log(`Service card clicked: ${serviceId}`);
+                
+                // Close all other service cards first
+                serviceCards.forEach(otherCard => {
+                    if (otherCard !== this) {
+                        const otherId = otherCard.getAttribute('data-service');
+                        const otherDetails = document.getElementById(otherId);
+                        if (otherDetails) {
+                            otherDetails.classList.remove('active');
+                            otherCard.classList.remove('active');
+                            otherCard.style.transform = 'translateY(0) scale(1)';
+                        }
+                    }
+                });
+                
+                // Toggle current service details
+                const isActive = serviceDetails.classList.contains('active');
+                serviceDetails.classList.toggle('active');
+                
+                if (serviceDetails.classList.contains('active')) {
+                    this.classList.add('active');
+                    this.style.transform = 'translateY(-5px) scale(1.01)';
+                    console.log(`Service ${serviceId} opened`);
+                } else {
+                    this.classList.remove('active');
+                    this.style.transform = 'translateY(0) scale(1)';
+                    console.log(`Service ${serviceId} closed`);
+                }
+            });
             
             // Add hover effects
-            newCard.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function() {
                 if (!this.classList.contains('active')) {
                     this.style.transform = 'translateY(-8px) scale(1.02)';
                 }
             });
             
-            newCard.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function() {
                 if (!this.classList.contains('active')) {
                     this.style.transform = 'translateY(0) scale(1)';
                 }
             });
+            
+            console.log(`Service card ${index + 1} initialized with ID: ${serviceId}`);
         });
+        
+        console.log(`Total service cards initialized: ${serviceCards.length}`);
     }
 }
 
@@ -403,45 +447,4 @@ function toggleFAQ(faqItem) {
     
     // Toggle current FAQ item
     faqItem.classList.toggle('active');
-}
-
-// Global function for toggling service details
-function toggleServiceDetails(serviceId) {
-    console.log('toggleServiceDetails called with:', serviceId);
-    
-    const serviceDetails = document.getElementById(serviceId);
-    const serviceCard = serviceDetails.closest('.service-card');
-    
-    console.log('serviceDetails found:', !!serviceDetails);
-    console.log('serviceCard found:', !!serviceCard);
-    
-    if (serviceDetails && serviceCard) {
-        // Close all other service details
-        document.querySelectorAll('.service-details').forEach(details => {
-            if (details.id !== serviceId) {
-                details.classList.remove('active');
-                const otherCard = details.closest('.service-card');
-                if (otherCard) {
-                    otherCard.classList.remove('active');
-                    otherCard.style.transform = 'translateY(0) scale(1)';
-                }
-            }
-        });
-        
-        // Toggle current service details
-        const isActive = serviceDetails.classList.contains('active');
-        serviceDetails.classList.toggle('active');
-        
-        console.log('Service details toggled, active:', serviceDetails.classList.contains('active'));
-        
-        if (serviceDetails.classList.contains('active')) {
-            serviceCard.classList.add('active');
-            serviceCard.style.transform = 'translateY(-5px) scale(1.01)';
-        } else {
-            serviceCard.classList.remove('active');
-            serviceCard.style.transform = 'translateY(0) scale(1)';
-        }
-    } else {
-        console.error('Could not find service details or card for ID:', serviceId);
-    }
 } 

@@ -346,12 +346,12 @@ p {
   background: var(--paper);
   padding: var(--space-4);
   border-radius: var(--radius);
+  border: 2px solid rgba(107, 123, 87, 0.1);
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
-  cursor: pointer;
   position: relative;
+  cursor: pointer;
   overflow: visible;
-  border: 2px solid transparent;
 }
 
 .service-card:hover {
@@ -385,17 +385,22 @@ p {
 }
 
 .service-details {
-  display: none;
+  opacity: 0;
+  max-height: 0;
   margin-top: var(--space-3);
-  padding: var(--space-3);
+  padding: 0 var(--space-3);
   background: rgba(250, 247, 242, 0.95);
   border-radius: var(--radius);
   border-right: 4px solid var(--brand-olive);
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .service-details.active {
-  display: block;
+  opacity: 1;
+  max-height: 500px;
+  padding: var(--space-3);
   animation: slideDown 0.3s ease-out forwards;
 }
 
