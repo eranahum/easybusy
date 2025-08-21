@@ -1,8 +1,8 @@
 // SPA Application Class
 class SPA {
     constructor() {
-        this.currentSection = 'home';
-        this.sections = ['home', 'about', 'services', 'packages', 'contact'];
+        this.currentSection = 'intro';
+        this.sections = ['intro', 'about', 'services', 'faq', 'contact'];
         this.init();
     }
 
@@ -68,6 +68,7 @@ class SPA {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    console.log('Element intersecting:', entry.target.id || entry.target.className);
                     entry.target.classList.add('fade-in-up');
                     
                     // Update active navigation
@@ -79,15 +80,28 @@ class SPA {
             });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
+        // Observe all sections by their IDs
+        this.sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                observer.observe(section);
+                console.log('Observing section:', sectionId);
+            } else {
+                console.warn('Section not found:', sectionId);
+            }
+        });
+
+        // Also observe any elements with section classes for backward compatibility
+        document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
+            console.log('Observing section element:', section.id || section.className);
         });
 
         // Observe service cards for staggered animation
         const serviceObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
+                    console.log('Service card intersecting:', index);
                     setTimeout(() => {
                         entry.target.classList.add('fade-in-up');
                     }, index * 100);
@@ -95,9 +109,13 @@ class SPA {
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.service-card').forEach(card => {
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
             serviceObserver.observe(card);
+            console.log(`Observing service card ${index + 1}`);
         });
+        
+        console.log(`Total service cards found: ${serviceCards.length}`);
     }
 
     setupScrollEffects() {
