@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ניהול מוצר וליווי טכנולוגי - MVP מדויק</title>
-    <link rel="stylesheet" href="styles.css?v=20250809k">
+    <title>בניית חזון, מפת־דרכים ו-MVP ואוטומציות | Eran Nahum</title>
+    <meta name="description" content="אני מתכנן ומשיק MVPs, סוכני/בוטי AI ואוטומציות לעסקים קטנים-בינוניים (לדוגמה: CRM ב-WhatsApp, בסיסי נתונים לאתרים). לשעבר מנהל מוצר בחברות מרקטינג ומכירות, בונה פלטפורמות BI, יזם 6 שנים, מוביל צוותי פיתוח מרחוק, גיוס הון ועיצוב UI/UX.">
+    <meta name="keywords" content="MVP, מפת דרכים, חזון מוצר, סוכני בינה, בוטים, אוטומציה, WhatsApp CRM, אוטומציות לעסקים, BI, UI/UX, ניהול מוצר, סטארטאפ">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Eran Nahum — חזון, מפת־דרכים, MVP ואוטומציות">
+    <meta property="og:description" content="מהרעיון למוצר עובד — ואז לאוטומציה. סוכני AI, WhatsApp CRM ומערכות נתונים לצמיחת SMB.">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,17 +21,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="cyclic_heptagon_minSide48_allMoving_12s_equal_transparent.webp" alt="Production logo" class="nav-logo-img" width="128" height="128" />
                 <div class="nav-logo-text">
-                    <h2>Production</h2>
-                    <p class="nav-logo-subtitle">product engineering</p>
+                    <h2>production</h2>
+                    <p class="nav-logo-subtitle">הנדסת מוצר</p>
                 </div>
+                <img src="cyclic_heptagon_minSide48_allMoving_12s_equal_transparent.webp" alt="Production logo" class="nav-logo-img" width="90" height="90" />
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">בית</a></li>
-                <li><a href="#about" class="nav-link">אודות</a></li>
                 <li><a href="#services" class="nav-link">שירותים</a></li>
-                <li><a href="#packages" class="nav-link">חבילות</a></li>
+                <li><a href="#process" class="nav-link">תהליך</a></li>
+                <li><a href="#about" class="nav-link">אודות</a></li>
                 <li><a href="#contact" class="nav-link">צור קשר</a></li>
             </ul>
             <div class="hamburger">
@@ -34,237 +41,462 @@
         </div>
     </nav>
 
-    <!-- Main Content Container -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="section hero-section" style="padding-top: var(--nav-height);">
-            <div class="hero-background"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">ניהול מוצר. ליווי טכנולוגי. MVP מדויק.</h1>
-                    <p class="hero-text">עוזר לסטארטאפים ולעסקים קטנים לבנות מוצרים חכמים, לייעל תהליכים, ולצמוח מהר יותר – בלי לבזבז זמן או תקציב מיותר.</p>
-                    <a href="https://calendly.com/your-calendly-link" class="cta-button" target="_blank">
-                        <i class="fas fa-calendar-alt"></i>
-                        תיאום שיחה חינמית
-                    </a>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-eyebrow">מוצר • סוכני AI • אוטומציות</p>
+                <h1 class="hero-title">מהחזון ל-MVP עובד — ואז לאוטומציה.</h1>
+                <p class="hero-subheadline">אני עוזר לעסקים קטנים-בינוניים להפוך רעיונות למוצרים עוברים-יצור ולתהליכים אוטומטיים: MVP, סוכנים מרובי-תפקידים, WhatsApp CRM ומערכות נתונים לאתר.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-button primary">קבעו שיחת היכרות חינם</a>
+                    <a href="#services" class="cta-button secondary">צפו בשירותים</a>
+                </div>
+                <div class="trust-badges">
+                    <div class="badge">מנהל מוצר לשעבר (מרקטינג ומכירות)</div>
+                    <div class="badge">בניית פלטפורמות BI</div>
+                    <div class="badge">יזם לשעבר (6 שנים)</div>
+                    <div class="badge">ניהול צוותי פיתוח מרחוק</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="section about-section">
-            <div class="container">
-                <div class="about-content">
-                                    <div class="about-image">
-                    <div class="profile-image">
-                        <img src="profile.jpg" alt="Product Manager Profile" />
+    <!-- Value Props Section -->
+    <section id="value-props" class="value-props-section">
+        <div class="container">
+            <div class="value-props-grid">
+                <div class="value-prop-card">
+                    <div class="value-prop-icon">
+                        <i class="fas fa-bullseye"></i>
                     </div>
+                    <h3>תוצאות תחילה</h3>
+                    <p>מפות־דרכים שמחוברות ליעדים עסקיים ומדידות הצלחה ברורות.</p>
                 </div>
-                    <div class="about-text">
-                        <h2>אודות</h2>
-                        <p>אני מנהל מוצר עם מעל 9 שנות ניסיון:</p>
+                <div class="value-prop-card">
+                    <div class="value-prop-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>לבנות מהר, להקטין סיכון</h3>
+                    <p>להגדיר מוצר קטן-ואהוב ולשחרר במחזורים קצרים.</p>
+                </div>
+                <div class="value-prop-card">
+                    <div class="value-prop-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h3>לאוטומט את השגרה</h3>
+                    <p>להחליף עבודה ידנית בבוטים, וורקפלוים ואינטגרציות מסרים.</p>
+                </div>
+                <div class="value-prop-card">
+                    <div class="value-prop-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>יציבות על נתונים</h3>
+                    <p>חשיבה אנליטית ו-BI משולבת בהחלטות מוצר ואוטומציה.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">שירותים</h2>
+            <div class="services-grid">
+                <div class="service-card" onclick="toggleServiceDetails('service1')">
+                    <div class="service-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>חזון, מפת־דרכים ו-MVP</h3>
+                    <p>הגדרה חדה של חזון מוצר, מפת־דרכים פרקטית, ושחרור MVP שמוכיח ערך.</p>
+                    
+                    <div class="service-details" id="service1">
+                        <h4>מה תקבלו:</h4>
                         <ul>
-                            <li>ניהלתי מוצרים B2B, B2C ופלטפורמות SaaS</li>
-                            <li>הקמתי סטארטאפ וניהלתי צוותי פיתוח בחו"ל</li>
-                            <li>חי ונושם מוצר, משתמשים, יעילות, ופוקוס</li>
+                            <li>חזון מוצר ומיצוב</li>
+                            <li>מסעות משתמשים והגדרת בעיות</li>
+                            <li>מפת־דרכים מועדפת (3–6 חודשים)</li>
+                            <li>היקף MVP ומדדי הצלחה</li>
+                            <li>סקיצות ו-UI/UX ל-v1</li>
+                            <li>תוכנית בנייה (צוות, סטאק, טיימליין)</li>
                         </ul>
-                        <p>מה אני מביא? שילוב של חשיבה עסקית, ניהול מוצר מעשי, והבנה עמוקה של עולם הפיתוח.</p>
-                        <p>אני מדבר "שפת הפיתוח" – אבל רואה תמיד את המשתמש.</p>
+                        <h4>תוצאות:</h4>
+                        <ul>
+                            <li>בהירות על מה בונים קודם</li>
+                            <li>הפחתת סיכון באמצעות לופ למידה הדוק</li>
+                            <li>תוכנית מוכנה למשקיעים ובעלי עניין</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">נתחיל למפות את הדרך</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Services Section -->
-        <section id="services" class="section services-section">
-            <div class="container">
-                <h2 class="section-title">שירותים</h2>
-                <div class="services-grid">
-                    <div class="service-card" onclick="toggleServiceDetails('service1')">
-                        <div class="service-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>אסטרטגיית מוצר & Roadmap</h3>
-                        <p>מפת דרכים, חזון, תעדוף והצמדת מטרות עסקיות.</p>
-                        <div class="service-details" id="service1">
-                            <h4>מה זה כולל?</h4>
-                            <ul>
-                                <li>ניתוח שוק מתחרים וזיהוי הזדמנויות</li>
-                                <li>בניית חזון מוצר ברור ומדיד</li>
-                                <li>יצירת מפת דרכים עם אבני דרך מוגדרות</li>
-                                <li>תדוף תכונות לפי ROI ויעדים עסקיים</li>
-                                <li>הגדרת KPIs ומדדי הצלחה</li>
-                            </ul>
-                            <h4>למי זה מתאים?</h4>
-                            <p>סטארטאפים בתחילת הדרך, עסקים שמחפשים כיוון חדש, או מוצרים קיימים שצריכים רענון אסטרטגי.</p>
-                        </div>
-                        <div class="service-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                <div class="service-card" onclick="toggleServiceDetails('service2')">
+                    <div class="service-toggle">
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    
-                    <div class="service-card" onclick="toggleServiceDetails('service2')">
-                        <div class="service-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>אפיון & מחקר משתמשים</h3>
-                        <p>ראיונות, מיפוי כאבים, הגדרת MVP ממוקד.</p>
-                        <div class="service-details" id="service2">
-                            <h4>מה זה כולל?</h4>
-                            <ul>
-                                <li>ראיונות עומק עם משתמשים פוטנציאליים</li>
-                                <li>מיפוי כאבים וצרכים לא מסופקים</li>
-                                <li>יצירת personas מפורטים</li>
-                                <li>בניית user journey maps</li>
-                                <li>הגדרת MVP עם תכונות חיוניות בלבד</li>
-                            </ul>
-                            <h4>למי זה מתאים?</h4>
-                            <p>צוותים שרוצים להבין מה המשתמשים באמת רוצים, לפני שמתחילים לפתח.</p>
-                        </div>
-                        <div class="service-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
+                    <h3>סוכנים מרובי-תפקידים ובוטים</h3>
+                    <p>תכנון ויישום סוכני AI ובוטים שמטפלים במשימות ותהליכים חוזרים.</p>
                     
-                    <div class="service-card" onclick="toggleServiceDetails('service3')">
-                        <div class="service-icon">
-                            <i class="fas fa-wrench"></i>
-                        </div>
-                        <h3>ליווי טכנולוגי וניהול מפתחים</h3>
-                        <p>סיוע בבחירת טכנולוגיה, ניהול פרילנסרים וצוותים.</p>
-                        <div class="service-details" id="service3">
-                            <h4>מה זה כולל?</h4>
-                            <ul>
-                                <li>ייעוץ בבחירת stack טכנולוגי מתאים</li>
-                                <li>ניהול צוותי פיתוח ופרילנסרים</li>
-                                <li>בקרת איכות ובדיקות קוד</li>
-                                <li>תכנון ארכיטקטורה וסקלביליות</li>
-                                <li>ניהול סיכונים טכנולוגיים</li>
-                            </ul>
-                            <h4>למי זה מתאים?</h4>
-                            <p>מייסדים ללא רקע טכני, או צוותים שצריכים גשר בין הצד העסקי לטכני.</p>
-                        </div>
-                        <div class="service-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceDetails('service4')">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>הטמעת מערכות וכלים פנימיים</h3>
-                        <p>בניית תשתיות עם Notion, CRM, ClickUp ועוד.</p>
-                        <div class="service-details" id="service4">
-                            <h4>מה זה כולל?</h4>
-                            <ul>
-                                <li>בניית מערכות ניהול ידע עם Notion</li>
-                                <li>הטמעת CRM וניהול לקוחות</li>
-                                <li>בניית תהליכי עבודה עם ClickUp/Asana</li>
-                                <li>אינטגרציה בין כלים שונים</li>
-                                <li>הדרכת צוותים בשימוש בכלים</li>
-                            </ul>
-                            <h4>למי זה מתאים?</h4>
-                                <p>עסקים שצריכים לייעל תהליכים פנימיים ולהגדיל פרודוקטיביות.</p>
-                        </div>
-                        <div class="service-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card" onclick="toggleServiceDetails('service5')">
-                        <div class="service-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h3>ניהול מוצר חלקי / CPO זמני</h3>
-                        <p>אחריות אסטרטגית וניהולית ללא גיוס במשרה מלאה.</p>
-                        <div class="service-details" id="service5">
-                            <h4>מה זה כולל?</h4>
-                            <ul>
-                                <li>ניהול מוצר יומיומי וקבלת החלטות</li>
-                                <li>עבודה עם צוותי פיתוח ועיצוב</li>
-                                <li>ניהול תקציבים ותכנון משאבים</li>
-                                <li>דיווח למנהלים ומשקיעים</li>
-                                <li>העברת ידע לצוות פנימי</li>
-                            </ul>
-                            <h4>למי זה מתאים?</h4>
-                            <p>סטארטאפים שצריכים מנהל מוצר מנוסה אבל לא יכולים להרשות לעצמם CPO במשרה מלאה.</p>
-                        </div>
-                        <div class="service-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
+                    <div class="service-details" id="service2">
+                        <h4>מה תקבלו:</h4>
+                        <ul>
+                            <li>ארכיטקטורת סוכנים ותפקידים</li>
+                            <li>אינטגרציות (APIs, וובהוקים, מקורות נתונים)</li>
+                            <li>זרימות שיחה ומעקות בטיחות</li>
+                            <li>דשבורד ניהול ולוגים</li>
+                            <li>תוכנית ניטור ואיטרציה</li>
+                        </ul>
+                        <h4>שימושים:</h4>
+                        <ul>
+                            <li>סינון לידים והפנייתם</li>
+                            <li>תמיכה בשירות עצמי/FAQ</li>
+                            <li>אוטומציית Back-office</li>
+                            <li>העשרת נתונים ויצירת דוחות</li>
+                        </ul>
+                        <h4>תוצאות:</h4>
+                        <ul>
+                            <li>צמצום עלויות תפעול</li>
+                            <li>זמני תגובה מהירים</li>
+                            <li>תהליכים עקביים ובר־מדידה</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">מתכננים סוכן ראשון</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Packages Section -->
-        <section id="packages" class="section packages-section">
-            <div class="container">
-                <h2 class="section-title">חבילות</h2>
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>MVP ב-14 יום</h3>
-                        </div>
-                        <div class="package-content">
-                            <p>הגדרה, תעדוף וכתיבת אפיון מוכן לפיתוח – בזמן קצר.</p>
-                        </div>
+                <div class="service-card" onclick="toggleServiceDetails('service3')">
+                    <div class="service-toggle">
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>בדיקת בריאות למוצר קיים</h3>
-                        </div>
-                        <div class="package-content">
-                            <p>ניתוח חוויית משתמש, מבנה תפעולי והמלצות פרקטיות.</p>
-                        </div>
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
                     </div>
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>הקמת מערכות תפעוליות לעסק</h3>
-                        </div>
-                        <div class="package-content">
-                            <p>ייעוץ והטמעה של הכלים שהצוות שלך צריך כדי לעבוד ביעילות.</p>
-                        </div>
+                    <h3>אוטומציות ל-SMB</h3>
+                    <p>חיבור כלים ותהליכים. אוטומציית מסרים, איסוף נתונים ודיווח.</p>
+                    
+                    <div class="service-details" id="service3">
+                        <h4>מה תקבלו:</h4>
+                        <ul>
+                            <li>מיפוי תהליכים ומפת אוטומציה</li>
+                            <li>וורקפלוים במסרים (WhatsApp, אימייל)</li>
+                            <li>צנרות נתונים לאתר/בסיסי נתונים</li>
+                            <li>הטמעת CRM או אינטגרציה</li>
+                            <li>דשבורדים והתראות</li>
+                        </ul>
+                        <h4>דוגמאות:</h4>
+                        <ul>
+                            <li>WhatsApp CRM (קליטת לידים, פולואפים, תזכורות)</li>
+                            <li>בסיס נתונים לאתר המזין CRM/BI</li>
+                            <li>דוחות שבועיים אוטומטיים</li>
+                            <li>התראות סטטוס/הזמנה</li>
+                        </ul>
+                        <h4>תוצאות:</h4>
+                        <ul>
+                            <li>פחות עבודה ידנית</li>
+                            <li>פחות טעויות</li>
+                            <li>נראות טובה יותר על הביצועים</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">מאוטמים תהליך אחד</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section -->
-        <section id="contact" class="section cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>🚀 בואו נבנה משהו חכם</h2>
-                    <p>אני מזמין אותך לשיחת ייעוץ חינמית – להבין מה באמת יעזור לעסק שלך להתקדם.</p>
-                    <a href="https://calendly.com/your-calendly-link" class="cta-button" target="_blank">
-                        <i class="fas fa-calendar-check"></i>
-                        קבעו שיחה עכשיו
-                    </a>
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <h2 class="section-title">תהליך העבודה</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>גילוי</h3>
+                    <p>הבנת מטרות, משתמשים ומגבלות; מיפוי כלים ונתונים קיימים.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>הגדרה</h3>
+                    <p>קביעת תוצאות רצויות, טיוטת מפת־דרכים ונעילת מדדי הצלחה.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>עיצוב</h3>
+                    <p>Wireframes, זרימות UX, מודלי תוכן ונתונים בהתאם להיקף ה-MVP.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>פיתוח</h3>
+                    <p>יישום MVP ו/או סוכנים עם אינטגרציות וניטור.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>אוטומציה</h3>
+                    <p>חיבור מסרים, CRM ובסיסי נתונים; ביטול צעדים ידניים.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>איטרציה</h3>
+                    <p>מדידה, למידה ושחרור שיפורים בקאדנס קבוע.</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">תיק עבודות</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <h3>פלטפורמת BI לצוותי מרקטינג</h3>
+                    <p>תכנון והובלת מוצר BI לריכוז ביצועים רב-ערוציים לטובת קבלת החלטות יומיומית.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">BI</span>
+                        <span class="tag">אסטרטגיית מוצר</span>
+                        <span class="tag">UX</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <h3>סטארטאפ: מרעיון להכנסות</h3>
+                    <p>הקמה ותפעול SaaS במשך 6 שנים — מוצר, עיצוב, גיוס הון וצוותי פיתוח מבוזרים.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Founder</span>
+                        <span class="tag">SaaS</span>
+                        <span class="tag">Marketplace</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <h3>CRM מונע-WhatsApp</h3>
+                    <p>יישום קליטת לידים, פולואפים ותזכורות עם אוטומציות מסרים ודשבורדים.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Automation</span>
+                        <span class="tag">WhatsApp</span>
+                        <span class="tag">CRM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-image">
+                        <img src="profile.jpg" alt="Eran Nahum" />
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>מנהל מוצר שהפך לבונה בפועל.</h2>
+                    <p>כיהנתי כמנהל מוצר בחברות מרקטינג ומכירות, הובלתי אסטרטגיית מוצר ובניתי פלטפורמות BI. ייסדתי סטארטאפ וניהלתי אותו שש שנים — ניהול צוותי פיתוח מחו״ל, גיוס הון ועיצוב UI/UX לפלטפורמות SaaS ומרקטפלייסים. היום אני עוזר ל-SMB לנוע מהר: להגדיר MVP נכון, ליישם סוכני AI ולאוטומט תהליכים.</p>
+                    <ul>
+                        <li>מנהל מוצר לשעבר (מרקטינג ומכירות)</li>
+                        <li>בניית והטמעת פלטפורמות BI</li>
+                        <li>6 שנות יזמות</li>
+                        <li>ניהול צוותי פיתוח מרחוק</li>
+                        <li>ניסיון בגיוס הון</li>
+                        <li>UI/UX ל-SaaS ומרקטפלייסים</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">מה הלקוחות אומרים</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <blockquote>"ערן תרגם רעיון מעורפל ל-MVP ברור ושחרר אותו במהירות."</blockquote>
+                    <div class="testimonial-author">
+                        <strong>שם לקוח</strong>
+                        <span>מנכ״ל, Company Ltd.</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"האוטומציות ב-WhatsApp צמצמו 70% מהפניות הידניות ושיפרו זמני תגובה."</blockquote>
+                    <div class="testimonial-author">
+                        <strong>שם לקוח</strong>
+                        <span>ראש מכירות, RetailCo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">מחירים</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>ספרינט מפת־דרכים</h3>
+                    <p class="pricing-best-for">יזמים בשלבי ולידציה</p>
+                    <div class="pricing-amount">מותאם</div>
+                    <ul>
+                        <li>חזון והגדרת בעיה</li>
+                        <li>מפת־דרכים מועדפת</li>
+                        <li>היקף MVP ומדדים</li>
+                        <li>Wireframes ל-v1</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">נתחם ספרינט</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>בניית MVP</h3>
+                    <p class="pricing-best-for">צוותים שמוכנים לשחרור</p>
+                    <div class="pricing-amount">מותאם</div>
+                    <ul>
+                        <li>יישום MVP</li>
+                        <li>אינטגרציות ואנליטיקה בסיסית</li>
+                        <li>תוכנית שחרור והעברה</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">נדבר על MVP</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>אוטומציה וסוכנים</h3>
+                    <p class="pricing-best-for">SMB בהרחבת תפעול</p>
+                    <div class="pricing-amount">מותאם</div>
+                    <ul>
+                        <li>תכנון סוכנים וזרימות</li>
+                        <li>אוטומציות WhatsApp/CRM</li>
+                        <li>דשבורדים והתראות</li>
+                        <li>ניטור ואיטרציה</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">מאוטמים תהליך</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">שאלות נפוצות</h2>
+            <div class="faq-list">
+                <div class="faq-item" onclick="toggleFAQ('faq1')">
+                    <div class="faq-question">
+                        <h3>עם אילו תעשיות אתה עובד?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq1">
+                        <p>בעיקר SMB בתחומי מרקטינג, מכירות ושירותים, אך התהליך מותאם-תעשייה.</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFAQ('faq2')">
+                    <div class="faq-question">
+                        <h3>אתה מייעץ או גם בונה?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq2">
+                        <p>גם וגם. אפיון ועיצוב, ואז יישום MVP, סוכנים ואוטומציות מקצה-לקצה.</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFAQ('faq3')">
+                    <div class="faq-question">
+                        <h3>באילו כלים אתה משתמש?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq3">
+                        <p>בדרך כלל APIs של מסרים (כולל WhatsApp Business), CRMs, טפסים/בסיסי נתונים לאתר ופלטפורמות וורקפלו. נבחר יחד מה מתאים לסטאק ולתקציב.</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFAQ('faq4')">
+                    <div class="faq-question">
+                        <h3>כמה זמן לוקח MVP?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq4">
+                        <p>משוחרר באיטרציות קטנות. הזמן תלוי בהיקף ובאינטגרציות.</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFAQ('faq5')">
+                    <div class="faq-question">
+                        <h3>אפשר לעבוד עם הצוות הקיים שלי?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq5">
+                        <p>כן. שמח לשתף פעולה עם צוותים פנימיים או חיצוניים.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section id="cta-banner" class="cta-banner-section">
+        <div class="container">
+            <div class="cta-banner-content">
+                <h2>פותחים בספרינט מפת־דרכים ממוקד.</h2>
+                <p>תוך שבועיים — תוכנית ברורה והיקף MVP בר-בנייה.</p>
+                <a href="#contact" class="cta-button primary">מתחילים</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">בואו נבנה את הצעד הבא יחד.</h2>
+            <p class="contact-subtitle">ספרו על המטרות והכלים הקיימים. אחזור עם תכנית קצרה.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">שם *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">אימייל *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="company">חברה</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="project_type">מה אתם צריכים? *</label>
+                    <select id="project_type" name="project_type" required>
+                        <option value="">בחרו אפשרות</option>
+                        <option value="vision-roadmap">חזון ומפת־דרכים</option>
+                        <option value="mvp">בניית MVP</option>
+                        <option value="agents-bots">סוכן/בוט מרובה-תפקידים</option>
+                        <option value="automation">אוטומציות (WhatsApp/CRM/DB)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">ספרו עוד *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="cta-button primary">שליחה</button>
+                    <a href="#" class="cta-button secondary">קביעת שיחה</a>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>נעים להכיר, אני ערן נחום</p>
-                    <p>📧 eranahum@gmail.com</p>
-                    <p class="quote">"אם אפשר לבנות את זה פשוט – זה תמיד יותר חכם."</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        <a href="privacy-policy.html" style="color: var(--light-tan); text-decoration: none;">מדיניות פרטיות</a>
-                    </p>
+                    <p>© Eran Nahum</p>
+                    <p class="quote">"מהרעיון למוצר עובד — ואז לאוטומציה"</p>
                 </div>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/eran-nahum-316bb451/" target="_blank" class="social-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </a>
+                <div class="footer-links">
+                    <a href="#services">שירותים</a>
+                    <a href="#process">תהליך</a>
+                    <a href="#about">אודות</a>
+                    <a href="#contact">צור קשר</a>
                 </div>
             </div>
         </div>

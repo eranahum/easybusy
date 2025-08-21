@@ -18,9 +18,20 @@ class SPA {
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         
-        hamburger?.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
         });
 
         // Navigation links
@@ -354,30 +365,208 @@ class PerformanceOptimizer {
     }
 }
 
-// Initialize the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize SPA
-    const spa = new SPA();
+// Service Cards Functionality
+function initializeServiceCards() {
+    const serviceCards = document.querySelectorAll('.service-card');
     
-    // Initialize animations
-    const animations = new AnimationController();
+    serviceCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Toggle active state
+            const isActive = this.classList.contains('active');
+            
+            // Close all other cards
+            serviceCards.forEach(otherCard => {
+                if (otherCard !== this) {
+                    otherCard.classList.remove('active');
+                    const otherDetails = otherCard.querySelector('.service-details');
+                    if (otherDetails) {
+                        otherDetails.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Toggle current card
+            this.classList.toggle('active');
+            const details = this.querySelector('.service-details');
+            if (details) {
+                details.classList.toggle('active');
+            }
+            
+            // Adjust transform for visual feedback
+            if (!isActive) {
+                this.style.transform = 'translateY(-5px)';
+            } else {
+                this.style.transform = '';
+            }
+        });
+        
+        // Mouse enter/leave effects (only if not active)
+        card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('active')) {
+                this.style.transform = 'translateY(-5px)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('active')) {
+                this.style.transform = '';
+            }
+        });
+    });
+}
+
+// FAQ Functionality
+function initializeFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
     
-    // Initialize performance optimizations
-    const performance = new PerformanceOptimizer();
+    faqItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== this) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            this.classList.toggle('active');
+        });
+    });
+}
+
+// Smooth Scrolling for Navigation Links
+function initializeSmoothScrolling() {
+    const links = document.querySelectorAll('a[href^="#"]');
     
-    // Add pulse animation keyframes
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-    `;
-    document.head.appendChild(style);
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetSection.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// Form Handling
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
     
-    console.log('SPA initialized successfully!');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.name || !data.email || !data.project_type || !data.message) {
+                alert('אנא מלאו את כל השדות הנדרשים');
+                return;
+            }
+            
+            // Here you would typically send the data to your backend
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('תודה! נחזור אליכם בקרוב.');
+            
+            // Reset form
+            this.reset();
+        });
+    }
+}
+
+// Intersection Observer for Animations
+function initializeAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('loaded');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements that should animate
+    const animatedElements = document.querySelectorAll('.value-prop-card, .service-card, .process-step, .portfolio-item, .testimonial-card, .pricing-card');
+    animatedElements.forEach(el => {
+        el.classList.add('loading');
+        observer.observe(el);
+    });
+}
+
+// Initialize all functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeServiceCards();
+    initializeFAQ();
+    initializeSmoothScrolling();
+    initializeContactForm();
+    initializeAnimations();
+    
+    // Add loading class to body for initial animations
+    document.body.classList.add('loaded');
 });
+
+// Global function for service details toggle (for onclick in HTML)
+function toggleServiceDetails(serviceId) {
+    const serviceDetails = document.getElementById(serviceId);
+    const serviceCard = serviceDetails.closest('.service-card');
+    
+    if (serviceDetails && serviceCard) {
+        // Close all other service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            if (card !== serviceCard) {
+                card.classList.remove('active');
+                const details = card.querySelector('.service-details');
+                if (details) {
+                    details.classList.remove('active');
+                }
+            }
+        });
+        
+        // Toggle current service card
+        serviceCard.classList.toggle('active');
+        serviceDetails.classList.toggle('active');
+    }
+}
+
+// Global function for FAQ toggle (for onclick in HTML)
+function toggleFAQ(faqId) {
+    const faqAnswer = document.getElementById(faqId);
+    const faqItem = faqAnswer.closest('.faq-item');
+    
+    if (faqAnswer && faqItem) {
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+                item.classList.remove('active');
+            }
+        });
+        
+        // Toggle current FAQ item
+        faqItem.classList.toggle('active');
+    }
+}
 
 // Handle window resize
 window.addEventListener('resize', Utils.debounce(() => {
@@ -400,22 +589,4 @@ document.addEventListener('visibilitychange', () => {
         // Page is visible, resume animations
         document.body.classList.remove('page-hidden');
     }
-});
-
-// Global function for toggling service details
-function toggleServiceDetails(serviceId) {
-    const serviceDetails = document.getElementById(serviceId);
-    const serviceCard = serviceDetails.closest('.service-card');
-    
-    if (serviceDetails && serviceCard) {
-        // Close all other service details
-        document.querySelectorAll('.service-details').forEach(details => {
-            if (details.id !== serviceId) {
-                details.classList.remove('active');
-            }
-        });
-        
-        // Toggle current service details
-        serviceDetails.classList.toggle('active');
-    }
-} 
+}); 
