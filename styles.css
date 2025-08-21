@@ -208,25 +208,44 @@ p {
   animation: fadeInUp 1s ease-out;
 }
 
-.hero-statements {
-  margin-bottom: var(--space-5);
+.hero-main-text {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-4);
+  opacity: 0.95;
+  animation: fadeInUp 1s ease-out 0.2s both;
+  line-height: 1.4;
 }
 
-.hero-text {
-  font-size: 1.3rem;
+.hero-bullets {
+  list-style: none;
+  margin-bottom: var(--space-5);
+  padding: 0;
+}
+
+.hero-bullets li {
+  font-size: 1.2rem;
   margin-bottom: var(--space-2);
   opacity: 0.9;
-  animation: fadeInUp 1s ease-out 0.2s both;
+  position: relative;
+  padding-right: var(--space-4);
+  animation: fadeInUp 1s ease-out both;
 }
 
-.hero-text:nth-child(1) { animation-delay: 0.2s; }
-.hero-text:nth-child(2) { animation-delay: 0.4s; }
-.hero-text:nth-child(3) { animation-delay: 0.6s; }
-.hero-text:nth-child(4) { animation-delay: 0.8s; }
-.hero-text:nth-child(5) { animation-delay: 1.0s; }
-.hero-text:nth-child(6) { animation-delay: 1.2s; }
-.hero-text:nth-child(7) { animation-delay: 1.4s; }
-.hero-text:nth-child(8) { animation-delay: 1.6s; }
+.hero-bullets li::before {
+  content: '•';
+  position: absolute;
+  right: 0;
+  color: var(--paper);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hero-bullets li:nth-child(1) { animation-delay: 0.4s; }
+.hero-bullets li:nth-child(2) { animation-delay: 0.6s; }
+.hero-bullets li:nth-child(3) { animation-delay: 0.8s; }
+.hero-bullets li:nth-child(4) { animation-delay: 1.0s; }
+.hero-bullets li:nth-child(5) { animation-delay: 1.2s; }
+.hero-bullets li:nth-child(6) { animation-delay: 1.4s; }
 
 .cta-button {
   display: inline-flex;
@@ -241,7 +260,7 @@ p {
   font-size: 1.1rem;
   transition: all 0.3s ease;
   box-shadow: var(--shadow);
-  animation: fadeInUp 1s ease-out 1.8s both;
+  animation: fadeInUp 1s ease-out 1.6s both;
 }
 
 .cta-button:hover {
