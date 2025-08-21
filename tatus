@@ -1,0 +1,5 @@
+[33m4d1843b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Fix service card functionality and animations for web deployment
+[33mbc351e0[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m last update
+[33m47c26df[m Restructure main page using JSON data with new design system - Warm, rounded, and stylish design with animations - Hebrew RTL layout with proper punctuation and digits - New CSS variables for consistent spacing and colors - FAQ section with interactive toggles - Mobile-responsive design with consistent colors
+[33m70ee58d[m Complete website restructure: Simplified to two clear work flows with Hebrew RTL layout
+[33ma93f558[m Complete website restructure: Hebrew RTL layout with new content structure and sections
