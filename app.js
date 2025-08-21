@@ -177,40 +177,19 @@ class SPA {
         const serviceCards = document.querySelectorAll('.service-card');
         
         serviceCards.forEach((card, index) => {
+            // Remove any existing event listeners to avoid conflicts
+            const newCard = card.cloneNode(true);
+            card.parentNode.replaceChild(newCard, card);
+            
             // Add hover effects
-            card.addEventListener('mouseenter', function() {
+            newCard.addEventListener('mouseenter', function() {
                 if (!this.classList.contains('active')) {
                     this.style.transform = 'translateY(-8px) scale(1.02)';
                 }
             });
             
-            card.addEventListener('mouseleave', function() {
+            newCard.addEventListener('mouseleave', function() {
                 if (!this.classList.contains('active')) {
-                    this.style.transform = 'translateY(0) scale(1)';
-                }
-            });
-
-            // Add click effect and toggle functionality
-            card.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
-                // Toggle active state
-                const isActive = this.classList.contains('active');
-                
-                // Close all other service cards
-                serviceCards.forEach(otherCard => {
-                    if (otherCard !== this) {
-                        otherCard.classList.remove('active');
-                        otherCard.style.transform = 'translateY(0) scale(1)';
-                    }
-                });
-                
-                // Toggle current card
-                this.classList.toggle('active');
-                
-                if (this.classList.contains('active')) {
-                    this.style.transform = 'translateY(-5px) scale(1.01)';
-                } else {
                     this.style.transform = 'translateY(0) scale(1)';
                 }
             });
@@ -356,27 +335,36 @@ class PerformanceOptimizer {
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize SPA
-    const spa = new SPA();
-    
-    // Initialize animations
-    const animations = new AnimationController();
-    
-    // Initialize performance optimizations
-    const performance = new PerformanceOptimizer();
-    
-    // Add pulse animation keyframes
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    console.log('SPA initialized successfully!');
+    try {
+        // Initialize SPA
+        const spa = new SPA();
+        
+        // Initialize animations
+        const animations = new AnimationController();
+        
+        // Initialize performance optimizations
+        const performance = new PerformanceOptimizer();
+        
+        // Test service card functionality
+        setTimeout(() => {
+            const serviceCards = document.querySelectorAll('.service-card');
+            console.log('Found service cards:', serviceCards.length);
+            
+            serviceCards.forEach((card, index) => {
+                const details = card.querySelector('.service-details');
+                const toggle = card.querySelector('.service-toggle');
+                console.log(`Service card ${index + 1}:`, {
+                    hasDetails: !!details,
+                    hasToggle: !!toggle,
+                    detailsId: details?.id
+                });
+            });
+        }, 1000);
+        
+        console.log('SPA initialized successfully!');
+    } catch (error) {
+        console.error('Error initializing SPA:', error);
+    }
 });
 
 // Handle window resize
@@ -419,18 +407,41 @@ function toggleFAQ(faqItem) {
 
 // Global function for toggling service details
 function toggleServiceDetails(serviceId) {
+    console.log('toggleServiceDetails called with:', serviceId);
+    
     const serviceDetails = document.getElementById(serviceId);
     const serviceCard = serviceDetails.closest('.service-card');
+    
+    console.log('serviceDetails found:', !!serviceDetails);
+    console.log('serviceCard found:', !!serviceCard);
     
     if (serviceDetails && serviceCard) {
         // Close all other service details
         document.querySelectorAll('.service-details').forEach(details => {
             if (details.id !== serviceId) {
                 details.classList.remove('active');
+                const otherCard = details.closest('.service-card');
+                if (otherCard) {
+                    otherCard.classList.remove('active');
+                    otherCard.style.transform = 'translateY(0) scale(1)';
+                }
             }
         });
         
         // Toggle current service details
+        const isActive = serviceDetails.classList.contains('active');
         serviceDetails.classList.toggle('active');
+        
+        console.log('Service details toggled, active:', serviceDetails.classList.contains('active'));
+        
+        if (serviceDetails.classList.contains('active')) {
+            serviceCard.classList.add('active');
+            serviceCard.style.transform = 'translateY(-5px) scale(1.01)';
+        } else {
+            serviceCard.classList.remove('active');
+            serviceCard.style.transform = 'translateY(0) scale(1)';
+        }
+    } else {
+        console.error('Could not find service details or card for ID:', serviceId);
     }
 } 

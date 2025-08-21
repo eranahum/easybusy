@@ -396,7 +396,7 @@ p {
 
 .service-details.active {
   display: block;
-  animation: slideDown 0.3s ease-out;
+  animation: slideDown 0.3s ease-out forwards;
 }
 
 .service-details h4 {
@@ -432,10 +432,12 @@ p {
 .service-toggle {
   position: absolute;
   top: var(--space-3);
-  left: var(--space-3);
+  right: var(--space-3);
   color: var(--brand-olive);
   font-size: 1.2rem;
   transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .service-card.active .service-toggle {
@@ -565,12 +567,20 @@ p {
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-20px);
+    max-height: 0;
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    max-height: 500px;
   }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 /* Responsive Design */
@@ -705,4 +715,24 @@ p {
 .loading.loaded {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Animation Classes */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-up.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card.active {
+  border-color: var(--brand-olive);
+  box-shadow: 0 15px 40px rgba(107, 123, 87, 0.2);
+  transform: translateY(-5px) scale(1.01);
+}
+
+.service-card.active .service-toggle {
+  transform: rotate(180deg);
 }
