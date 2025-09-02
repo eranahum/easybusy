@@ -1,0 +1,87 @@
+.contact-section {
+  background: linear-gradient(135deg, var(--brand-olive) 0%, var(--brand-desert) 100%);
+  color: white;
+  text-align: center;
+  padding: var(--space-5) 0;
+}
+
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-content p {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-4);
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.contact-section .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: white;
+  color: var(--brand-desert);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.contact-section .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  background: #f8f8f8;
+}
+
+.contact-section .cta-button i {
+  font-size: 1.2rem;
+}
+
+.contact-info {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.contact-form {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-content h2 {
+    font-size: 2rem;
+  }
+
+  .contact-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .contact-content p {
+    font-size: 1rem;
+  }
+
+  .contact-section .cta-button {
+    padding: var(--space-2) var(--space-3);
+    font-size: 1rem;
+  }
+}

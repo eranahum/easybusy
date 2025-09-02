@@ -1,0 +1,60 @@
+.App {
+  text-align: right;
+}
+
+/* Section spacing */
+section {
+  padding: var(--space-5) 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Hero section specific */
+#intro {
+  background: linear-gradient(135deg, var(--brand-desert) 0%, var(--brand-olive) 100%);
+  color: white;
+  text-align: center;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* About section */
+#about {
+  background: var(--paper);
+}
+
+/* Services section */
+#services {
+  background: linear-gradient(135deg, var(--paper) 0%, #f0f0f0 100%);
+}
+
+/* FAQ section */
+#faq {
+  background: var(--paper);
+}
+
+/* Contact section */
+#contact {
+  background: linear-gradient(135deg, var(--brand-olive) 0%, var(--brand-desert) 100%);
+  color: white;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 100px; /* Smaller padding for mobile */
+  }
+  
+  section {
+    padding: var(--space-4) 0;
+    min-height: auto;
+  }
+  
+  #intro {
+    padding-top: calc(var(--space-4) + 100px);
+  }
+}

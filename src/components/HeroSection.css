@@ -1,0 +1,124 @@
+.hero-section {
+  background: linear-gradient(135deg, var(--brand-desert) 0%, var(--brand-olive) 100%);
+  color: white;
+  text-align: center;
+  padding: var(--space-5) 0;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-4);
+  color: white;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.hero-main-text {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-4);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.hero-bullets {
+  list-style: none;
+  margin: var(--space-4) 0;
+  padding: 0;
+}
+
+.hero-bullets li {
+  padding: var(--space-2) 0;
+  padding-right: var(--space-4);
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.hero-bullets li::before {
+  content: '✓';
+  position: absolute;
+  right: 0;
+  color: var(--brand-olive);
+  font-weight: bold;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--paper);
+  color: var(--brand-olive);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  background: #f8f8f8;
+}
+
+.cta-button i {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: var(--space-4) 0;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-main-text {
+    font-size: 1.2rem;
+  }
+
+  .hero-bullets li {
+    padding: var(--space-2);
+    margin: var(--space-1) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: var(--space-3) 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-main-text {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    padding: var(--space-2) var(--space-3);
+    font-size: 1rem;
+  }
+}
